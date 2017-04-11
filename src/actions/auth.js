@@ -7,7 +7,7 @@ export const BASE_URL = process.env.REACT_APP_SERVER_URL || 'http://localhost:50
 
 export function setAuthorizationToken(token) {
   if (token) {
-    axios.default.headers.common['Authorization'] = `Basic ${token}`
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
   } else {
     delete axios.default.headers.common['Authorization']
   }
@@ -17,14 +17,10 @@ export function login(code) {
   return dispatch => {
     return axios.post(`${BASE_URL}/authenticate`, code)
     .then(res => {
-      let data = {
-        accessToken: res.data.accessToken,
-        refreshToken: res.data.refreshToken,
-        username: res.data.username
-      };
-      localStorage.setItem('accessToken', data.accessToken);
-      localStorage.setItem('refreshToken', data.refreshToken);
-      dispatch(setCurrentUser(data.username));
+      setAuthorizationToken(res.data.access_token)
+      localStorage.setItem('refreshToken', res.data.refresh_token);
+      localStorage.setItem('displayName', res.data.display_name);
+      dispatch(setCurrentUser(res.data.display_name));
     })
     .catch(err => dispatch(setLoginError(err)));
   }
@@ -36,10 +32,10 @@ export function catchLoginErr(err) {
   }
 }
 
-export function setCurrentUser(username) {
+export function setCurrentUser(displayName) {
   return {
     type: SET_CURRENT_USER,
-    username
+    displayName
   }
 }
 

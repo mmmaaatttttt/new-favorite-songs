@@ -19,10 +19,12 @@ export function login(code) {
     .then(res => {
       setAuthorizationToken(res.data.access_token)
       localStorage.setItem('refreshToken', res.data.refresh_token);
-      localStorage.setItem('displayName', res.data.display_name);
       dispatch(setCurrentUser(res.data.display_name));
     })
-    .catch(err => dispatch(setLoginError(err)));
+    .catch(err => {
+      var errObj = Object.keys(err).length ? err : null;
+      dispatch(setLoginError(errObj));
+    });
   }
 }
 

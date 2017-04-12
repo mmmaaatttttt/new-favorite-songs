@@ -9,15 +9,19 @@ import {
   applyMiddleware,
   compose
 } from 'redux';
+import { persistStore, autoRehydrate } from 'redux-persist';
 import rootReducer from './reducers/rootReducer';
 
 const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+    window.devToolsExtension ? window.devToolsExtension() : f => f,
+    autoRehydrate()
   )
 );
+
+persistStore(store);
 
 ReactDOM.render(
   <Provider store={store}>

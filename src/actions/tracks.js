@@ -29,3 +29,8 @@ export function setCurrentUserTracks(tracks) {
     tracks
   }
 }
+
+export function checkTrackStatus() {
+  var tracks = JSON.parse(localStorage.getItem('reduxPersist:tracks'))
+  return tracks && tracks.length > 0;
+}

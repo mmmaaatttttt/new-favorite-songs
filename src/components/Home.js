@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCurrentUserTracks } from '../actions/tracks';
+import { getCurrentUserTracks, checkTrackStatus } from '../actions/tracks';
 import Graph from './Graph';
 
 function mapStateToUserProps(state) {
@@ -13,7 +13,7 @@ function mapStateToUserProps(state) {
 class Home extends Component {
 
   componentWillMount() {
-    this.props.getCurrentUserTracks();
+    if (!checkTrackStatus()) this.props.getCurrentUserTracks();
   }
 
   render() {

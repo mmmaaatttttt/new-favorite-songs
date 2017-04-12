@@ -2,7 +2,7 @@ import { SET_CURRENT_USER, SET_LOGIN_ERROR } from '../actions/auth.js';
 import { SET_CURRENT_USER_TRACKS } from '../actions/tracks.js';
 
 const DEFAULT_STATE = {
-  currentUser: localStorage.getItem('displayName'),
+  currentUser: '',
   loginError: '',
   tracks: []
 };
@@ -25,6 +25,8 @@ export default (state = DEFAULT_STATE, action) => {
         ...state, 
         tracks: action.tracks 
       };
+    case 'persist/REHYDRATE':
+      return Object.assign({}, state, action.payload)
     default:
       return state;
   }

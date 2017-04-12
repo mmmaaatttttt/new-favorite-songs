@@ -1,13 +1,13 @@
 import React from 'react';
 import GraphPoint from './GraphPoint'
 
-const GraphPointWrapper = ({tracks}) => (
+const GraphPointWrapper = ({tracks, xDataLabel, yDataLabel, xScale, yScale}) => (
   <g>
     {tracks.map(item => (
       <GraphPoint 
         key={item.track.id}
-        x={item.audio_features.danceability * 500}
-        y={item.audio_features.energy * 500}
+        x={xScale(item.audio_features[xDataLabel])}
+        y={yScale(item.audio_features[yDataLabel])}
         url={item.track.album.images[0].url}
         r={5}
       />

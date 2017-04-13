@@ -4,7 +4,15 @@ import { SET_CURRENT_USER_TRACKS } from '../actions/tracks.js';
 const DEFAULT_STATE = {
   currentUser: '',
   loginError: '',
-  tracks: []
+  tracks: [],
+  graphWidth: 500,
+  graphHeight: 500,
+  graphPadding: {
+    top: 50,
+    left: 50,
+    right: 50,
+    bottom: 50
+  }
 };
 
 export default (state = DEFAULT_STATE, action) => {

@@ -21,9 +21,6 @@ class Home extends Component {
       <div> 
         <h1>Hello {this.props.username}!</h1>
         <Graph 
-          tracks={this.props.tracks} 
-          width={500}
-          height={500}
           xDataLabel={'danceability'}
           yDataLabel={'energy'}
         />

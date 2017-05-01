@@ -2,7 +2,7 @@ import React, { Component }from 'react';
 import { connect } from 'react-redux';
 import * as d3 from 'd3';
 import './Axis.css';
-import { capitalize } from '../helpers/miscHelpers';
+import { axisFormat } from '../helpers/miscHelpers';
 
 function mapStateToProps(state, props) {
   let axisLabel = props.axisType === 'x' ? 
@@ -59,7 +59,7 @@ class Axis extends Component {
           className="axis-label"
           transform={transformVal}
         >
-          {capitalize(this.props.axisLabel)}
+          {axisFormat(this.props.axisLabel)}
         </text>
       </g>
     )

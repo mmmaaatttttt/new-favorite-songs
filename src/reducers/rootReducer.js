@@ -1,5 +1,6 @@
 import { SET_CURRENT_USER, SET_LOGIN_ERROR } from '../actions/auth.js';
 import { SET_CURRENT_USER_TRACKS } from '../actions/tracks.js';
+import { SET_AXIS_LABEL } from '../actions/graph.js';
 
 const DEFAULT_STATE = {
   currentUser: '',
@@ -34,6 +35,11 @@ export default (state = DEFAULT_STATE, action) => {
       return {
         ...state, 
         tracks: action.tracks 
+      };
+    case SET_AXIS_LABEL: 
+      return {
+        ...state,
+        [action.axis]: action.newLabel
       };
     case 'persist/REHYDRATE':
       return Object.assign({}, state, action.payload)

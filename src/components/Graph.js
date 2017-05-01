@@ -2,15 +2,17 @@ import React, { Component }from 'react';
 import { connect } from 'react-redux';
 import GraphPointWrapper from './GraphPointWrapper';
 import Axis from './Axis';
-import * as d3 from 'd3'
-import './Graph.css'
+import * as d3 from 'd3';
+import './Graph.css';
 
 function mapStateToUserProps(state) {
   return {
     tracks: state.tracks,
     width: state.graphWidth,
     height: state.graphHeight,
-    padding: state.graphPadding
+    padding: state.graphPadding,
+    xDataLabel: state.xAxisLabel,
+    yDataLabel: state.yAxisLabel
   }
 }
 
@@ -47,6 +49,8 @@ class Graph extends Component {
       <svg 
         width={this.props.width}
         height={this.props.height}>
+        <Axis scale={xScale} axisType='x'/>
+        <Axis scale={yScale} axisType='y'/>
         <GraphPointWrapper 
           tracks={this.props.tracks}
           xDataLabel={this.props.xDataLabel}
@@ -54,8 +58,6 @@ class Graph extends Component {
           xScale={xScale}
           yScale={yScale}
         />
-        <Axis scale={xScale} axisType='x'/>
-        <Axis scale={yScale} axisType='y'/>
       </svg>
     )
   }

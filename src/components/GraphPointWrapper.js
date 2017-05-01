@@ -1,5 +1,5 @@
 import React from 'react';
-import GraphPoint from './GraphPoint'
+import GraphPoint from './GraphPoint';
 
 const GraphPointWrapper = ({tracks, xDataLabel, yDataLabel, xScale, yScale}) => (
   <g>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
-import { mapStateToUserProps } from '../helpers/connectHelpers'
+import { mapStateForAuth } from '../helpers/connectHelpers'
 import { login, catchLoginErr } from '../actions/auth';
 import { connect } from 'react-redux';
 import 'url-search-params-polyfill';
@@ -26,4 +26,4 @@ class Auth extends Component {
   }
 }
 
-export default connect(mapStateToUserProps, { login, catchLoginErr })(Auth);
+export default connect(mapStateForAuth, { login, catchLoginErr })(Auth);

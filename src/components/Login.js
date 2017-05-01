@@ -1,7 +1,7 @@
 import React from 'react';
 import { BASE_URL } from '../actions/auth';
 import { connect } from 'react-redux';
-import { mapStateToUserProps } from '../helpers/connectHelpers'
+import { mapStateForAuth } from '../helpers/connectHelpers';
 
 const Login = props => (
   <div>
@@ -12,4 +12,4 @@ const Login = props => (
   </div>
 )
 
-export default connect(mapStateToUserProps, null)(Login);
+export default connect(mapStateForAuth, null)(Login);

@@ -9,10 +9,12 @@ const DEFAULT_STATE = {
   graphHeight: 500,
   graphPadding: {
     top: 50,
-    left: 50,
-    right: 50,
+    left: 80,
+    right: 20,
     bottom: 50
-  }
+  },
+  xAxisLabel: 'danceability',
+  yAxisLabel: 'energy'
 };
 
 export default (state = DEFAULT_STATE, action) => {

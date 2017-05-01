@@ -1,0 +1,13 @@
+.x-axis line,
+.y-axis line {
+  stroke: #CCC;
+}
+
+.domain {
+  stroke: none;
+}
+
+.axis-label {
+  fill: #000;
+  text-anchor: middle;
+}

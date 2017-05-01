@@ -20,10 +20,7 @@ class Home extends Component {
     return (
       <div> 
         <h1>Hello {this.props.username}!</h1>
-        <Graph 
-          xDataLabel={'danceability'}
-          yDataLabel={'energy'}
-        />
+        <Graph />
       </div>
     )
   }
@@ -32,7 +29,6 @@ class Home extends Component {
 export default connect(mapStateToUserProps, { getCurrentUserTracks })(Home);
 
 // next steps:
-// add axes & gridlines
 // add ability to update axis values
 // add ability to get new data to plot and compare - find closest new song
 // style!

@@ -52,7 +52,6 @@ class Graph extends Component {
         <Axis scale={xScale} axisType='x'/>
         <Axis scale={yScale} axisType='y'/>
         <GraphPointWrapper 
-          tracks={this.props.tracks}
           xDataLabel={this.props.xDataLabel}
           yDataLabel={this.props.yDataLabel}
           xScale={xScale}

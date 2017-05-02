@@ -1,11 +1,15 @@
 import { SET_CURRENT_USER, SET_LOGIN_ERROR } from '../actions/auth.js';
-import { SET_CURRENT_USER_TRACKS } from '../actions/tracks.js';
+import { 
+  SET_CURRENT_USER_TRACKS,
+  SET_DISCOVER_WEEKLY_TRACKS
+} from '../actions/tracks.js';
 import { SET_AXIS_LABEL } from '../actions/graph.js';
 
 const DEFAULT_STATE = {
   currentUser: '',
   loginError: '',
   tracks: [],
+  discoverWeeklyTracks: [],
   graphWidth: 500,
   graphHeight: 500,
   graphPadding: {
@@ -36,6 +40,11 @@ export default (state = DEFAULT_STATE, action) => {
         ...state, 
         tracks: action.tracks 
       };
+    case SET_DISCOVER_WEEKLY_TRACKS:
+      return {
+        ...state,
+        discoverWeeklyTracks: action.tracks
+      }
     case SET_AXIS_LABEL: 
       return {
         ...state,

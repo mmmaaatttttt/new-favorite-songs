@@ -6,7 +6,7 @@ export function dispatchNewAxisLabel(axis, newLabel) {
   }
 }
 
-export function setAxisLabel(axis, newLabel) {
+function setAxisLabel(axis, newLabel) {
   return {
     type: SET_AXIS_LABEL,
     axis,

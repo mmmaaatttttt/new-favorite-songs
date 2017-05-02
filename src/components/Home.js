@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCurrentUserTracks, checkTrackStatus } from '../actions/tracks';
+import { 
+  getCurrentUserTracks, 
+  checkTrackStatus,
+  getDiscoverWeeklyTracks
+} from '../actions/tracks';
 import Graph from './Graph';
 import AxisSelect from './AxisSelect';
 
@@ -24,6 +28,9 @@ class Home extends Component {
         <div>
           <AxisSelect axis="x"/>
           <AxisSelect axis="y"/>
+          <button onClick={this.props.getDiscoverWeeklyTracks}>
+            Get Discover Weekly Tracks 
+          </button>
         </div>
         <Graph />
       </div>
@@ -31,22 +38,11 @@ class Home extends Component {
   }
 }
 
-export default connect(mapStateToUserProps, { getCurrentUserTracks })(Home);
+export default connect(mapStateToUserProps, { 
+  getCurrentUserTracks,
+  getDiscoverWeeklyTracks
+})(Home);
 
 // next steps:
-// add ability to update axis values; options: 
-  // - danceability
-  // - energy
-  // - key
-  // - loudness
-  // - mode
-  // - speechiness
-  // - acousticness
-  // - instrumentalness
-  // - liveness
-  // - valence
-  // - tempo
-  // - duration (ms)
-  // - time signature
 // add ability to get new data to plot and compare - find closest new song
 // style!

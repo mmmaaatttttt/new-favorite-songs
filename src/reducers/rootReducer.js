@@ -1,9 +1,13 @@
-import { SET_CURRENT_USER, SET_LOGIN_ERROR } from '../actions/auth.js';
+import { 
+  SET_CURRENT_USER, 
+  SET_LOGIN_ERROR,
+  setAuthorizationToken 
+} from '../actions/auth';
 import { 
   SET_CURRENT_USER_TRACKS,
   SET_DISCOVER_WEEKLY_TRACKS
-} from '../actions/tracks.js';
-import { SET_AXIS_LABEL } from '../actions/graph.js';
+} from '../actions/tracks';
+import { SET_AXIS_LABEL } from '../actions/graph';
 
 const DEFAULT_STATE = {
   currentUser: '',
@@ -27,7 +31,9 @@ export default (state = DEFAULT_STATE, action) => {
     case SET_CURRENT_USER:
       return { 
         ...state, 
-        currentUser: action.displayName,
+        currentUser: action.username,
+        token: action.token,
+        refreshToken: action.refreshToken,
         loginError: null
       };
     case SET_LOGIN_ERROR:
@@ -51,6 +57,7 @@ export default (state = DEFAULT_STATE, action) => {
         [action.axis]: action.newLabel
       };
     case 'persist/REHYDRATE':
+      setAuthorizationToken(action.payload.token);
       return Object.assign({}, state, action.payload)
     default:
       return state;

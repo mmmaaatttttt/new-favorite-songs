@@ -11,7 +11,8 @@ import AxisSelect from './AxisSelect';
 function mapStateToUserProps(state) {
   return {
     username: state.currentUser,
-    tracks: state.tracks
+    tracks: state.tracks,
+    token: state.token
   }
 }
 
@@ -28,7 +29,11 @@ class Home extends Component {
         <div>
           <AxisSelect axis="x"/>
           <AxisSelect axis="y"/>
-          <button onClick={this.props.getDiscoverWeeklyTracks}>
+          <button 
+            onClick={this.props.getDiscoverWeeklyTracks.bind(
+              this.props.tracks
+            )}
+          >
             Get Discover Weekly Tracks 
           </button>
         </div>
@@ -42,7 +47,3 @@ export default connect(mapStateToUserProps, {
   getCurrentUserTracks,
   getDiscoverWeeklyTracks
 })(Home);
-
-// next steps:
-// add ability to get new data to plot and compare - find closest new song
-// style!

@@ -1,7 +1,7 @@
 import React, { Component }from 'react';
 import { dispatchNewAxisLabel } from '../actions/graph';
 import { connect } from 'react-redux';
-import { axisFormat } from '../helpers/miscHelpers';
+import { axisFormat, trackKeys } from '../helpers/axisHelpers';
 
 function mapStateToProps(state, props) {
   let axisLabel = props.axis === 'x' ? 
@@ -23,21 +23,7 @@ class AxisSelect extends Component {
   }
 
   render() {
-    // BUG WITH DURATION
-    let options = [
-      'danceability',
-      'energy',
-      'key',
-      'loudness',
-      'mode',
-      'speechiness',
-      'acousticness',
-      'instrumentalness',
-      'liveness',
-      'valence',
-      'tempo',
-      'duration_ms',
-    ].sort().map((opt,i) => (
+    let options = trackKeys.sort().map((opt,i) => (
       <option key={i} value={opt}>{axisFormat(opt)}</option>
     ));
     return (

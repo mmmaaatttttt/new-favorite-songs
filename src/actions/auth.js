@@ -9,7 +9,7 @@ export function setAuthorizationToken(token) {
   if (token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
   } else {
-    delete axios.default.headers.common['Authorization']
+    delete axios.defaults.headers.common['Authorization']
   }
 }
  
@@ -18,8 +18,11 @@ export function login(code) {
     return axios.post(`${BASE_URL}/authenticate`, code)
     .then(res => {
       setAuthorizationToken(res.data.access_token)
-      localStorage.setItem('refreshToken', res.data.refresh_token);
-      dispatch(setCurrentUser(res.data.display_name));
+      dispatch(setCurrentUser({
+        username: res.data.display_name,
+        token: res.data.access_token,
+        refreshToken: res.data.refresh_token
+      }));
     })
     .catch(err => {
       var errObj = Object.keys(err).length ? err : null;
@@ -34,10 +37,10 @@ export function catchLoginErr(err) {
   }
 }
 
-export function setCurrentUser(displayName) {
+export function setCurrentUser(userObj) {
   return {
-    type: SET_CURRENT_USER,
-    displayName
+    ...userObj,
+    type: SET_CURRENT_USER
   }
 }
 

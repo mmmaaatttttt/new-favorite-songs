@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { normalizeFavoriteData } from '../helpers/numericHelpers';
 
 const SPOTIFY_BASE_URL = 'https://api.spotify.com'
 
@@ -24,7 +25,8 @@ export function getCurrentUserTracks() {
   }
 }
 
-export function getDiscoverWeeklyTracks(playlistId=null) {
+// need access to saved tracks in order to sort weekly tracks
+export function getDiscoverWeeklyTracks(favTracks) {
   let weeklyTracks = [];
   return dispatch => {
     return getDiscoverWeeklyId()
@@ -37,6 +39,8 @@ export function getDiscoverWeeklyTracks(playlistId=null) {
       return axios.get(`${SPOTIFY_BASE_URL}/v1/audio-features?ids=${ids}`);
     })
     .then(res => {
+      let normals = normalizeFavoriteData(favTracks)
+      debugger
       weeklyTracks.forEach((track, i) => {
         track.audio_features = res.data.audio_features[i];
         track.discoverWeekly = true;

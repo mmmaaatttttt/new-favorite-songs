@@ -31,7 +31,7 @@ class Home extends Component {
           <AxisSelect axis="y"/>
           <button 
             onClick={this.props.getDiscoverWeeklyTracks.bind(
-              this.props.tracks
+              this, this.props.tracks
             )}
           >
             Get Discover Weekly Tracks 

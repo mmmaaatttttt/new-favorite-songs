@@ -44,6 +44,11 @@ h1 > i {
 
 p {
   margin: 0;
+  text-align: center;
+}
+
+#content .fa-spin {
+  margin: 30px;
 }
 
 .login {

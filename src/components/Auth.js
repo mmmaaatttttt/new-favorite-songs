@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
+import './Login.css';
 import { mapStateForAuth } from '../helpers/connectHelpers'
 import { login, catchLoginErr } from '../actions/auth';
 import { connect } from 'react-redux';
 import 'url-search-params-polyfill';
+import background from '../background.jpg';
 
 class Auth extends Component {
 
@@ -16,11 +18,21 @@ class Auth extends Component {
     let redirectUrl = this.props.username ? `/users/${this.props.username}` : '/'  
     return (
       <div>
-        {
-          this.props.username ? 
-          <Redirect to={redirectUrl}/> : 
-          <p>Please stand by...</p>
-        }
+        <div id="main-image">
+          <img src={background} alt="Login page background"/>
+        </div>
+        <div id="content">
+          {
+            this.props.username ? 
+            <Redirect to={redirectUrl}/> : 
+            <div>
+              <div>
+                <i className="fa fa-5x fa-spinner fa-spin" aria-hidden="true"></i>
+              </div>
+              <p>Please stand by...</p>
+            </div>
+          }
+        </div>
       </div>
     )
   }

@@ -47,3 +47,8 @@ export default connect(mapStateToUserProps, {
   getCurrentUserTracks,
   getDiscoverWeeklyTracks
 })(Home);
+
+// add navbar (logout, get DW tracks)
+// update svg circles to show album data
+// add tooltips
+// add radial graph!

@@ -15,7 +15,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Login}/>
           <Route path="/callback" location={location} component={Auth}/>
-          <Route path="/users/:username" component={Home}/>
+          <Route path="/users/tracks" component={Home}/>
         </Switch>
       </Router>
     )

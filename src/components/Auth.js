@@ -15,7 +15,7 @@ class Auth extends Component {
   }
 
   render() {
-    let redirectUrl = this.props.username ? `/users/${this.props.username}` : '/'  
+    let redirectUrl = this.props.username ? `/users/tracks` : '/'  
     return (
       <div>
         <div id="main-image">

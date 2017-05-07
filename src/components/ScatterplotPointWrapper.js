@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import GraphPoint from './GraphPoint';
+import ScatterplotPoint from './ScatterplotPoint';
 
 function mapStateToProps(state) {
   return {
@@ -8,10 +8,10 @@ function mapStateToProps(state) {
   }
 }
 
-const GraphPointWrapper = ({tracks, xDataLabel, yDataLabel, xScale, yScale}) => (
+const ScatterplotPointWrapper = ({tracks, xDataLabel, yDataLabel, xScale, yScale}) => (
   <g>
     {tracks.map(item => (
-      <GraphPoint 
+      <ScatterplotPoint 
         key={item.track.id}
         x={xScale(item.audio_features[xDataLabel])}
         y={yScale(item.audio_features[yDataLabel])}
@@ -23,4 +23,4 @@ const GraphPointWrapper = ({tracks, xDataLabel, yDataLabel, xScale, yScale}) => 
   </g>
 );
 
-export default connect(mapStateToProps, null)(GraphPointWrapper);
+export default connect(mapStateToProps, null)(ScatterplotPointWrapper);

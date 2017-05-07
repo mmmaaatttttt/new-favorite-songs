@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import 'font-awesome/css/font-awesome.css';
@@ -22,11 +22,29 @@ const store = createStore(
   )
 );
 
-persistStore(store);
+class AppProvider extends Component {
+  constructor() {
+    super();
+    this.state = { rehydrated: false };
+  }
+
+  componentWillMount() {
+    persistStore(store, {}, () => {
+      this.setState({ rehydrated: true });
+    });
+  }
+
+  render() {
+    if (!this.state.rehydrated) return null
+    return (
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    )
+  }
+}
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
+  <AppProvider />,
   document.getElementById('root')
 );

@@ -1,0 +1,12 @@
+h3 {
+  text-align: center;
+}
+
+.Home-row,
+.col-50 {
+  display: flex;
+}
+
+.col-50 {
+  width: 50%;
+}

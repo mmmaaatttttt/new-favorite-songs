@@ -1,9 +1,9 @@
 import React, { Component }from 'react';
 import { connect } from 'react-redux';
-import GraphPointWrapper from './GraphPointWrapper';
+import ScatterplotPointWrapper from './ScatterplotPointWrapper';
 import Axis from './Axis';
 import * as d3 from 'd3';
-import './Graph.css';
+import './Scatterplot.css';
 
 function mapStateToUserProps(state) {
   return {
@@ -16,7 +16,7 @@ function mapStateToUserProps(state) {
   }
 }
 
-class Graph extends Component {
+class Scatterplot extends Component {
 
   render() {
     const xMin = d3.min(
@@ -51,7 +51,7 @@ class Graph extends Component {
         height={this.props.height}>
         <Axis scale={xScale} axisType='x'/>
         <Axis scale={yScale} axisType='y'/>
-        <GraphPointWrapper 
+        <ScatterplotPointWrapper 
           xDataLabel={this.props.xDataLabel}
           yDataLabel={this.props.yDataLabel}
           xScale={xScale}
@@ -62,4 +62,4 @@ class Graph extends Component {
   }
 }
 
-export default connect(mapStateToUserProps, null)(Graph);
+export default connect(mapStateToUserProps, null)(Scatterplot);

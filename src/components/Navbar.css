@@ -1,0 +1,30 @@
+.Navbar {
+  padding: 20px;
+  background-color: #1ed760;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Navbar > h2 {
+  margin: 0;
+}
+
+.Navbar i {
+  margin-right: 10px;
+}
+
+button {
+  padding: 8px 10px;
+  border: none;
+  margin: 0 4px;
+  font-size: 0.9em;
+  border-radius: 17px;
+  color: white;
+  background-color: #7840c7;
+}
+
+button:hover {
+  background-color: #6207e3;
+}

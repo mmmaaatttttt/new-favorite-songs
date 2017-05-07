@@ -31,6 +31,14 @@ export function login(code) {
   }
 }
 
+export function logout() {
+  return dispatch => {
+    localStorage.clear();
+    setAuthorizationToken(false);
+    dispatch(setCurrentUser({}));
+  }
+}
+
 export function catchLoginErr(err) {
   return dispatch => {
     dispatch(setLoginError(err));

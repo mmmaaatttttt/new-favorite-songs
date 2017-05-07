@@ -14,3 +14,12 @@ h5,
 h6 {
   font-family: 'Montserrat', 'sans-serif';
 }
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active,
+button:focus {
+  outline: none;
+}

@@ -14,7 +14,7 @@ const DEFAULT_STATE = {
   loginError: '',
   tracks: [],
   discoverWeeklyTracks: [],
-  graphWidth: 500,
+  graphWidth: 600,
   graphHeight: 500,
   graphPadding: {
     top: 50,
@@ -29,13 +29,13 @@ const DEFAULT_STATE = {
 export default (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case SET_CURRENT_USER:
-      return { 
+      return Object.keys(action).length > 1 ? { 
         ...state, 
         currentUser: action.username,
         token: action.token,
         refreshToken: action.refreshToken,
         loginError: null
-      };
+      } : {};
     case SET_LOGIN_ERROR:
       return {
         ...state,

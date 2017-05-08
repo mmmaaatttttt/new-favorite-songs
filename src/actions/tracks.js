@@ -5,6 +5,7 @@ const SPOTIFY_BASE_URL = 'https://api.spotify.com'
 
 export const SET_CURRENT_USER_TRACKS = 'SET_CURRENT_USER_TRACKS';
 export const SET_DISCOVER_WEEKLY_TRACKS = 'SET_DISCOVER_WEEKLY_TRACKS';
+export const SET_CURRENT_TRACK = 'SET_CURRENT_TRACK';
 
 export function getCurrentUserTracks() {
   let tracks = [];
@@ -51,6 +52,21 @@ export function getDiscoverWeeklyTracks(favTracks) {
         weeklyTracks.sort((a, b) => b.rating - a.rating))
       )
     })
+  }
+}
+
+export function dispatchCurrentTrack(x, y, track) {
+  return dispatch => {
+    dispatch(setCurrentTrack(x, y, track));
+  }
+}
+
+function setCurrentTrack(x,y,track) {
+  return {
+    type: SET_CURRENT_TRACK,
+    x,
+    y,
+    track
   }
 }
 

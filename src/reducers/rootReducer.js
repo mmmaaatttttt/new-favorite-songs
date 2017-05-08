@@ -5,7 +5,8 @@ import {
 } from '../actions/auth';
 import { 
   SET_CURRENT_USER_TRACKS,
-  SET_DISCOVER_WEEKLY_TRACKS
+  SET_DISCOVER_WEEKLY_TRACKS,
+  SET_CURRENT_TRACK
 } from '../actions/tracks';
 import { SET_AXIS_LABEL } from '../actions/graph';
 
@@ -23,7 +24,10 @@ const DEFAULT_STATE = {
     bottom: 50
   },
   xAxisLabel: 'danceability',
-  yAxisLabel: 'energy'
+  yAxisLabel: 'energy',
+  tooltipX: 0,
+  tooltipY: 0,
+  currentTrack: null
 };
 
 export default (state = DEFAULT_STATE, action) => {
@@ -46,6 +50,13 @@ export default (state = DEFAULT_STATE, action) => {
         ...state, 
         tracks: action.tracks 
       };
+    case SET_CURRENT_TRACK:
+      return {
+        ...state,
+        tooltipX: action.x,
+        tooltipY: action.y,
+        currentTrack: action.track
+      }
     case SET_DISCOVER_WEEKLY_TRACKS:
       return {
         ...state,

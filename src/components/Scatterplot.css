@@ -2,3 +2,8 @@ svg {
   display: block;
   margin: 0 auto;
 }
+
+circle {
+  stroke: black;
+  stroke-width: 3px;
+}

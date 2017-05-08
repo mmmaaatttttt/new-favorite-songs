@@ -11,8 +11,6 @@ function mapStateToProps(state) {
   }
 }
 
-// 2. remove discover weekly button if discover weekly tracks are present
-
 const Navbar = props => {
   let discoverButton = props.discoverWeeklyTracks.length === 0 ? (
     <button 

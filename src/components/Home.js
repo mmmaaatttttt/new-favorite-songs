@@ -8,6 +8,7 @@ import {
 import Scatterplot from './Scatterplot';
 import AxisSelect from './AxisSelect';
 import Navbar from './Navbar';
+import Tooltip from './Tooltip';
 import './Home.css';
 
 function mapStateToUserProps(state) {
@@ -56,6 +57,7 @@ class Home extends Component {
               </div>
               <div className="col-50">
                 <Scatterplot />
+                <Tooltip />
               </div>
             </div>
           </div>

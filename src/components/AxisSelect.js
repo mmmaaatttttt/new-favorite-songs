@@ -1,5 +1,5 @@
 import React, { Component }from 'react';
-import { dispatchNewAxisLabel } from '../actions/graph';
+import { setAxisLabel } from '../actions/graph';
 import { connect } from 'react-redux';
 import { axisFormat, trackKeys } from '../helpers/axisHelpers';
 
@@ -17,7 +17,7 @@ class AxisSelect extends Component {
   }
 
   handleChange(e) {
-    this.props.dispatchNewAxisLabel(
+    this.props.setAxisLabel(
       this.props.axis + 'AxisLabel', e.target.value
     );
   }
@@ -40,4 +40,4 @@ class AxisSelect extends Component {
   }
 } 
 
-export default connect(mapStateToProps, { dispatchNewAxisLabel })(AxisSelect);
+export default connect(mapStateToProps, { setAxisLabel })(AxisSelect);

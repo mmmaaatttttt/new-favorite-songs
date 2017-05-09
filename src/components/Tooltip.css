@@ -1,0 +1,29 @@
+.Tooltip {
+  position: absolute;
+  border: 8px solid #6207e3;
+  border-radius: 8px;
+  background-color: #d1b6ff;
+  display: flex;
+  pointer-events: none;
+}
+
+.Tooltip p {
+  margin: 4px 12px;
+  text-align: left;
+}
+
+.Tooltip:before {
+  content:'';
+  display:block;
+  width:0;
+  height:0;
+  position:absolute;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left:10px solid #6207e3;
+  right:-18px;
+  top:60px;
+}
+
+.track-data {
+}

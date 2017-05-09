@@ -13,10 +13,9 @@ const ScatterplotPointWrapper = ({tracks, xDataLabel, yDataLabel, xScale, yScale
     {tracks.map(item => (
       <ScatterplotPoint 
         key={item.track.id}
-        track={item.track}
+        item={item}
         x={xScale(item.audio_features[xDataLabel])}
         y={yScale(item.audio_features[yDataLabel])}
-        fill={item.discoverWeekly ? "#FF0000" : "#000000"}
         r={15}
       />
     ))}

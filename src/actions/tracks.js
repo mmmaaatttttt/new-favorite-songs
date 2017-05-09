@@ -55,18 +55,14 @@ export function getDiscoverWeeklyTracks(favTracks) {
   }
 }
 
-export function dispatchCurrentTrack(x, y, track) {
+export function setCurrentTrack(x, y, track) {
   return dispatch => {
-    dispatch(setCurrentTrack(x, y, track));
-  }
-}
-
-function setCurrentTrack(x,y,track) {
-  return {
-    type: SET_CURRENT_TRACK,
-    x,
-    y,
-    track
+    dispatch({
+      type: SET_CURRENT_TRACK,
+      x,
+      y,
+      track
+    });
   }
 }
 

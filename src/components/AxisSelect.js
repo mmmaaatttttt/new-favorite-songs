@@ -1,13 +1,16 @@
 import React, { Component }from 'react';
 import { setAxisLabel } from '../actions/graph';
 import { connect } from 'react-redux';
-import { axisFormat, trackKeys } from '../helpers/axisHelpers';
+import { axisFormat } from '../helpers/axisHelpers';
 
 function mapStateToProps(state, props) {
   let axisLabel = props.axis === 'x' ? 
     state.xAxisLabel : 
     state.yAxisLabel;
-  return { axisLabel }
+  return { 
+    trackKeys: state.trackKeys, 
+    axisLabel 
+  };
 }
 
 class AxisSelect extends Component {
@@ -23,7 +26,7 @@ class AxisSelect extends Component {
   }
 
   render() {
-    let options = trackKeys.sort().map((opt,i) => (
+    let options = this.props.trackKeys.sort().map((opt,i) => (
       <option key={i} value={opt}>{axisFormat(opt)}</option>
     ));
     return (

@@ -11,26 +11,40 @@ import {
 import { SET_AXIS_LABEL } from '../actions/graph';
 
 const DEFAULT_STATE = {
+  currentTrack: null,
   currentUser: '',
-  loginError: '',
-  tracks: [],
   discoverWeeklyTracks: [],
-  graphWidth: 600,
-  graphHeight: 500,
-  graphPadding: {
+  loginError: '',
+  scatterplotWidth: 600,
+  scatterplotHeight: 500,
+  scatterplotPadding: {
     top: 50,
     left: 80,
     right: 20,
     bottom: 50
   },
-  xAxisLabel: 'danceability',
-  yAxisLabel: 'energy',
+  radialGraphWidth: 500,
+  radialGraphHeight: 500,
   tooltipX: 0,
   tooltipY: 0,
-  currentTrack: null
+  tracks: [],
+  trackKeys: [
+    'danceability',
+    'energy',
+    'loudness',
+    'speechiness',
+    'acousticness',
+    'instrumentalness',
+    'liveness',
+    'valence',
+    'tempo',
+    'duration_ms',
+  ],
+  xAxisLabel: 'danceability',
+  yAxisLabel: 'energy'
 };
 
-export default (state = DEFAULT_STATE, action) => {
+export default (state=DEFAULT_STATE, action={type: null}) => {
   switch (action.type) {
     case SET_CURRENT_USER:
       return Object.keys(action).length > 1 ? { 

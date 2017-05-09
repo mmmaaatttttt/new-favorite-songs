@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { trackKeys } from './axisHelpers';
+import rootReducer from '../reducers/rootReducer';
 
 export function getRatings(faves, weeklies) {
   const allTracks = faves.concat(weeklies);
@@ -22,7 +22,7 @@ function scale(tracks, key) {
 }
 
 function normalizeData(normalSet, targetSet) {
-  return trackKeys.reduce(function(prev, cur) {
+  return rootReducer().trackKeys.reduce(function(prev, cur) {
     const keyScale = scale(normalSet, cur);
     const scaledData = audioData(targetSet, cur).map(d => keyScale(d));
     return {...prev, [cur]: scaledData}
@@ -48,7 +48,7 @@ function averageDistance(normalizedFaves, normalizedWeeklies) {
 }
 
 function getNormalizedTrack(normData, idx) {
-  return trackKeys.reduce((obj, key) => (
+  return rootReducer().trackKeys.reduce((obj, key) => (
     {
       ...obj,
       [key]: normData[key][idx]

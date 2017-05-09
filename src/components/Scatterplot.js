@@ -8,9 +8,9 @@ import './Scatterplot.css';
 function mapStateToUserProps(state) {
   return {
     tracks: state.tracks,
-    width: state.graphWidth,
-    height: state.graphHeight,
-    padding: state.graphPadding,
+    width: state.scatterplotWidth,
+    height: state.scatterplotHeight,
+    padding: state.scatterplotPadding,
     xDataLabel: state.xAxisLabel,
     yDataLabel: state.yAxisLabel
   }

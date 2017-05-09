@@ -6,6 +6,7 @@ import {
   checkTrackStatus
 } from '../actions/tracks';
 import Scatterplot from './Scatterplot';
+import RadialGraph from './RadialGraph';
 import AxisSelect from './AxisSelect';
 import Navbar from './Navbar';
 import Tooltip from './Tooltip';
@@ -54,6 +55,7 @@ class Home extends Component {
             </div>
             <div className="Home-row">
               <div className="col-50">
+                <RadialGraph />
               </div>
               <div className="col-50">
                 <Scatterplot />

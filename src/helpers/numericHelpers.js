@@ -2,12 +2,21 @@ import * as d3 from 'd3';
 import rootReducer from '../reducers/rootReducer';
 
 export function getRatings(faves, weeklies) {
-  const allTracks = faves.concat(weeklies);
-  const normalFavorites = normalizeData(allTracks, faves);
-  const normalWeeklies = normalizeData(allTracks, weeklies);
+  // const allTracks = faves.concat(weeklies);
+  const normalFavorites = normalizeData(faves, faves);
+  const normalWeeklies = normalizeData(faves, weeklies);
   const distances = averageDistance(normalFavorites, normalWeeklies);
   const attributeCount = Object.keys(normalFavorites).length
   return distancesToRatings(distances, attributeCount);
+}
+
+export function getSavedAverages(faves) {
+  const normalFavorites = normalizeData(faves, faves);
+  return Object.keys(normalFavorites).reduce((obj, key) => {
+    const len = normalFavorites[key].length
+    const val = normalFavorites[key].reduce((sum, next) => sum + next, 0) / len;
+    return {...obj, [key]: val}
+  }, {})
 }
 
 const audioData = (tracks, key) => tracks.map(t => t.audio_features[key]);

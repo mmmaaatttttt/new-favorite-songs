@@ -10,9 +10,9 @@ function mapStateToProps(state, props) {
     state.yAxisLabel;
 
   return {
-    width: state.graphWidth,
-    height: state.graphHeight,
-    padding: state.graphPadding,
+    width: state.scatterplotWidth,
+    height: state.scatterplotHeight,
+    padding: state.scatterplotPadding,
     axisLabel
   }
 }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getRatings } from '../helpers/numericHelpers';
+import { getRatings, getSavedAverages } from '../helpers/numericHelpers';
 
 const SPOTIFY_BASE_URL = 'https://api.spotify.com'
 
@@ -20,7 +20,8 @@ export function getCurrentUserTracks() {
       tracks.forEach((track, i) => {
         track.audio_features = res.data.audio_features[i];
       });
-      dispatch(setCurrentUserTracks(tracks));
+      const trackAverages = getSavedAverages(tracks);
+      dispatch(setCurrentUserTracks(tracks, trackAverages));
     })
     .catch(err => console.log(err));
   }
@@ -73,10 +74,11 @@ export function setDiscoverWeeklyTracks(tracks) {
   }
 }
 
-export function setCurrentUserTracks(tracks) {
+export function setCurrentUserTracks(tracks, trackAverages) {
   return {
     type: SET_CURRENT_USER_TRACKS,
-    tracks
+    tracks,
+    trackAverages
   }
 }
 

@@ -27,6 +27,7 @@ const DEFAULT_STATE = {
   radialGraphHeight: 500,
   tooltipX: 0,
   tooltipY: 0,
+  trackAverages: null,
   tracks: [],
   trackKeys: [
     'danceability',
@@ -62,7 +63,8 @@ export default (state=DEFAULT_STATE, action={type: null}) => {
     case SET_CURRENT_USER_TRACKS: 
       return {
         ...state, 
-        tracks: action.tracks 
+        tracks: action.tracks,
+        trackAverages: action.trackAverages
       };
     case SET_CURRENT_TRACK:
       return {

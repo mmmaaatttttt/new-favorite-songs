@@ -26,6 +26,10 @@ const RadialGraph = ({trackKeys, width, height, trackAverages, radialTrack, trac
     radialTrackPolygon = <RadialPolygon data={data} stroke="#6207e3"/>
   }
 
+  let radialAveragePolygon = trackAverages ?
+    <RadialPolygon data={trackAverages} stroke="black" /> :
+    null;
+
   return (
     <svg
       width={width}
@@ -33,7 +37,7 @@ const RadialGraph = ({trackKeys, width, height, trackAverages, radialTrack, trac
     >
       <RadialAxis/>
       <AngularAxis/>
-      <RadialPolygon data={trackAverages} stroke="black" />
+      {radialAveragePolygon}
       {radialTrackPolygon}
     </svg>
   );

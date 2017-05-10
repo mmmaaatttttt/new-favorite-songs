@@ -54,10 +54,10 @@ class Home extends Component {
               <AxisSelect axis="y"/>
             </div>
             <div className="Home-row">
-              <div className="col-50">
+              <div className="col-40">
                 <RadialGraph />
               </div>
-              <div className="col-50">
+              <div className="col-40">
                 <Scatterplot />
                 <Tooltip />
               </div>

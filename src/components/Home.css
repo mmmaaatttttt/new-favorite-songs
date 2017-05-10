@@ -3,10 +3,10 @@ h3 {
 }
 
 .Home-row,
-.col-50 {
+.col-40 {
   display: flex;
 }
 
-.col-50 {
-  width: 50%;
+.col-40 {
+  width: 40%;
 }

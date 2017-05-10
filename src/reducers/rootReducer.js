@@ -16,7 +16,7 @@ const DEFAULT_STATE = {
   currentUser: '',
   discoverWeeklyTracks: [],
   loginError: '',
-  scatterplotWidth: 600,
+  scatterplotWidth: 500,
   scatterplotHeight: 500,
   scatterplotPadding: {
     top: 50,

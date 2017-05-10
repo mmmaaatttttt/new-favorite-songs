@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { getAngle } from '../helpers/axisHelpers';
 import * as d3 from 'd3';
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
   return {
     width: state.radialGraphWidth,
     height: state.radialGraphHeight,
   }
 }
 
-const RadialPolygon = ({data, width, height}) => {
+const RadialPolygon = ({data, width, height, stroke}) => {
   const keys = Object.keys(data).sort();
   const path = d3.path();
   const min = -0.5;
@@ -28,7 +28,12 @@ const RadialPolygon = ({data, width, height}) => {
   });
   path.closePath();
   return (
-    <path d={path.toString()} fill="none" stroke="black" strokeWidth="3px" />
+    <path 
+      d={path.toString()} 
+      fill="none" 
+      stroke={stroke} 
+      strokeWidth="3px" 
+    />
   );
 };
 

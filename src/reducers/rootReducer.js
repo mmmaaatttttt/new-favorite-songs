@@ -6,7 +6,8 @@ import {
 import { 
   SET_CURRENT_USER_TRACKS,
   SET_DISCOVER_WEEKLY_TRACKS,
-  SET_CURRENT_TRACK
+  SET_CURRENT_TRACK,
+  SET_RADIAL_TRACK
 } from '../actions/tracks';
 import { SET_AXIS_LABEL } from '../actions/graph';
 
@@ -25,6 +26,7 @@ const DEFAULT_STATE = {
   },
   radialGraphWidth: 500,
   radialGraphHeight: 500,
+  radialTrack: null,
   tooltipX: 0,
   tooltipY: 0,
   trackAverages: null,
@@ -72,6 +74,11 @@ export default (state=DEFAULT_STATE, action={type: null}) => {
         tooltipX: action.x,
         tooltipY: action.y,
         currentTrack: action.track
+      }
+    case SET_RADIAL_TRACK:
+      return {
+        ...state,
+        radialTrack: action.radialTrack
       }
     case SET_DISCOVER_WEEKLY_TRACKS:
       return {

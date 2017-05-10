@@ -6,6 +6,7 @@ const SPOTIFY_BASE_URL = 'https://api.spotify.com'
 export const SET_CURRENT_USER_TRACKS = 'SET_CURRENT_USER_TRACKS';
 export const SET_DISCOVER_WEEKLY_TRACKS = 'SET_DISCOVER_WEEKLY_TRACKS';
 export const SET_CURRENT_TRACK = 'SET_CURRENT_TRACK';
+export const SET_RADIAL_TRACK = 'SET_RADIAL_TRACK';
 
 export function getCurrentUserTracks() {
   let tracks = [];
@@ -63,6 +64,15 @@ export function setCurrentTrack(x, y, track) {
       x,
       y,
       track
+    });
+  }
+}
+
+export function setRadialTrack(item) {
+  return dispatch => {
+    dispatch({
+      type: SET_RADIAL_TRACK,
+      radialTrack: item
     });
   }
 }

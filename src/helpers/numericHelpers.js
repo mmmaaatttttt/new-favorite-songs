@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import rootReducer from '../reducers/rootReducer';
 
 export function getRatings(faves, weeklies) {
-  // const allTracks = faves.concat(weeklies);
+  // const allTracks = faves.concat(weeklies)
   const normalFavorites = normalizeData(faves, faves);
   const normalWeeklies = normalizeData(faves, weeklies);
   const distances = averageDistance(normalFavorites, normalWeeklies);
@@ -30,7 +30,7 @@ function scale(tracks, key) {
             .range([0, 1]);
 }
 
-function normalizeData(normalSet, targetSet) {
+export function normalizeData(normalSet, targetSet) {
   return rootReducer().trackKeys.reduce(function(prev, cur) {
     const keyScale = scale(normalSet, cur);
     const scaledData = audioData(targetSet, cur).map(d => keyScale(d));

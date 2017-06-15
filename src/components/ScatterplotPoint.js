@@ -9,6 +9,7 @@ function mapStateToProps(state) {
 }
 
 const ScatterplotPoint = ({item, x, y, r, fill, setCurrentTrack, setRadialTrack, radialTrack}) => {
+  // PUT THIS SOMEWHERE ELSE, DWTRACK COMPONENT NEEDS IT TOO
   function shouldRadialGraphUpdate() {
     if (radialTrack && radialTrack.track.id === item.track.id) {
       setRadialTrack(null);

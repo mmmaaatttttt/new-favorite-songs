@@ -51,7 +51,7 @@ export function getDiscoverWeeklyTracks(favTracks) {
         { ...obj, [track.track.id]: true }
       ), {});
       weeklyTracks = weeklyTracks.filter(track => !favTrackIds[track.track.id]);
-      
+
       // once we have audio features, we can get and add ratings
       const ratings = getRatings(favTracks, weeklyTracks);
       weeklyTracks.forEach((track, i) => {

@@ -1,27 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './Navbar.css';
-import { getDiscoverWeeklyTracks } from '../actions/tracks';
 import { logout } from '../actions/auth';
+import './Navbar.css';
 
-function mapStateToProps(state) {
-  return {
-    tracks: state.tracks,
-    discoverWeeklyTracks: state.discoverWeeklyTracks
-  }
-}
-
-const Navbar = props => {
-  let discoverButton = props.discoverWeeklyTracks.length === 0 ? (
-    <button 
-      onClick={props.getDiscoverWeeklyTracks.bind(
-        this, props.tracks
-      )}
-    >
-      <i className="fa fa-music" aria-hidden="true"></i>
-      Get Discover Weekly Tracks 
-    </button>
-  ) : null;
+const Navbar = ({logout}) => {
   return (
     <div className="Navbar">
       <h2>
@@ -29,8 +11,7 @@ const Navbar = props => {
         Tune Up
       </h2>
       <div>
-        { discoverButton }
-        <button onClick={props.logout} >
+        <button onClick={logout} >
           <i className="fa fa-sign-out" aria-hidden="true"></i>
           Log out
         </button>
@@ -39,7 +20,4 @@ const Navbar = props => {
   )
 }
 
-export default connect(mapStateToProps, { 
-  getDiscoverWeeklyTracks,
-  logout
-})(Navbar);
+export default connect(null, { logout })(Navbar);

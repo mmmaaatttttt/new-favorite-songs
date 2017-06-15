@@ -10,6 +10,7 @@ import RadialGraph from './RadialGraph';
 import AxisSelect from './AxisSelect';
 import Navbar from './Navbar';
 import Tooltip from './Tooltip';
+import DiscoverWeeklyWrapper from './DiscoverWeeklyWrapper';
 import './Home.css';
 
 function mapStateToUserProps(state) {
@@ -61,6 +62,9 @@ class Home extends Component {
                 <Scatterplot />
                 <Tooltip />
               </div>
+              <div className="col-20">
+                <DiscoverWeeklyWrapper />
+              </div>
             </div>
           </div>
         }
@@ -71,8 +75,11 @@ class Home extends Component {
 
 export default connect(mapStateToUserProps, { getCurrentUserTracks })(Home);
 
-// add navbar (logout, get DW tracks)
-// update svg circles to show album data
-// add tooltips
-// add radial graph!
+// clicking on sidebar album sets state
+// update styling for selects
+// update layout
+// error handling for now fave tracks or no spotify weekly
+// remove button click, do both requests on login
+  // - update radial graph design
+// larger spread of values for recommendations?
 // stateless functional components

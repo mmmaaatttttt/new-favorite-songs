@@ -1,6 +1,6 @@
 # New Favorite Songs
 
-A React-redux application that uses D3 to visualize data on songs you like, (and songs you may like in the future!
+A React-redux application that uses D3 to visualize data on songs you like, and songs you may like in the future!
 
 ### Setup
 
